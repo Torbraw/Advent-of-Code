@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "removeComments": true,
+    "strict": true,
+    "moduleResolution": "NodeNext",
+  },
+  "include": [
+    "**/*.ts",
+    "index.ts"
+  ], 
+  "exclude": [
+    "node_modules",
+  ]
+}
