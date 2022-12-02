@@ -6,9 +6,9 @@ let highestCalories = 0;
 
 for (const foods of foodsByElf) {
   const calories = foods.split("\r\n").map((l) => parseInt(l));
-  const maximumCalories = calories.reduce((a, b) => a + b, 0);
-  if (maximumCalories > highestCalories) {
-    highestCalories = maximumCalories;
+  const totalCalories = calories.reduce((a, b) => a + b, 0);
+  if (totalCalories > highestCalories) {
+    highestCalories = totalCalories;
   }
 }
 
