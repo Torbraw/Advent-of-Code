@@ -15,7 +15,6 @@ while (lines.length > 0) {
   ) {
     const letter = alphabet[alphabetIndex];
     if (lineGroup.every((line) => line.includes(letter))) {
-      console.log(letter);
       result += alphabetIndex + 1;
       break;
     }
