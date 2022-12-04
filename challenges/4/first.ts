@@ -23,7 +23,6 @@ for (const line of lines) {
   const [firstStart, firstEnd] = firstAssignment.map((value) => parseInt(value));
   const [secondStart, secondEnd] = secondAssignment.map((value) => parseInt(value));
 
-  // Check if firstStart and firstEnd is between secondStart and secondEnd
   if (
     areBeetwen(firstStart, firstEnd, secondStart, secondEnd) ||
     areBeetwen(secondStart, secondEnd, firstStart, firstEnd)
