@@ -9,7 +9,7 @@ for (let index = 0; index < input.length; index++) {
       result = index;
       break;
     }
-  } catch (e) {
+  } catch (_e) {
     //
   }
 }
