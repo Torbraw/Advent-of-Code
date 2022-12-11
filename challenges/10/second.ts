@@ -9,11 +9,9 @@ let pixelPosition = 0;
 const screen: string[][] = Array.from({ length: 6 }, () => new Array(40).fill("."));
 
 const drawPixel = () => {
-  let pixel = ".";
   if (pixelPosition === x || pixelPosition === x + 1 || pixelPosition === x - 1) {
-    pixel = "#";
+    screen[currentRow][pixelPosition] = "#";
   }
-  screen[currentRow][pixelPosition] = pixel;
   pixelPosition++;
 
   if (pixelPosition % 40 === 0) {
