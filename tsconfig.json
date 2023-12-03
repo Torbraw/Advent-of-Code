@@ -1,6 +1,6 @@
 {
   "include": [
-    "2023/*.ts",
+    "2023/**/*.ts",
     "utils.ts",
     "index.ts",
   ],
