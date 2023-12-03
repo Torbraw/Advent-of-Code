@@ -1,0 +1,26 @@
+{
+  "include": [
+    "2023/*.ts",
+    "utils.ts",
+    "index.ts",
+  ],
+  "exclude": [
+    "node_modules",
+    "2022"
+  ],
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "es2022",
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "moduleResolution": "NodeNext",
+    "module": "NodeNext",
+    "outDir": "dist",
+    "sourceMap": true,
+    "lib": ["es2022"],
+  }
+}
