@@ -27,15 +27,11 @@ export const secondChallenge = async () => {
     nine: '9',
   };
 
-  const lines = await getFileLines(__dirname, 'sample-input-2.txt');
+  const lines = await getFileLines(__dirname, 'input.txt');
   let sum = 0;
 
   for (const line of lines) {
-    const matches = [
-      ...line.matchAll(
-        /\d|(?=(one))|(?=(two))|(?=(three))|(?=(four))|(?=(five))|(?=(six))|(?=(seven))|(?=(eight))|(?=(nine))/g,
-      ),
-    ];
+    const matches = [...line.matchAll(/(?=(\d|one|two|three|four|five|six|seven|eight|nine))/g)];
     if (matches.length === 0) continue;
 
     let firstMatch = matches.at(0)?.find((match) => match) as string;
@@ -47,5 +43,6 @@ export const secondChallenge = async () => {
     sum += parseInt(`${firstMatch}${lastMatch}`);
   }
 
+  //54770
   console.log('Sum: ', sum);
 };
