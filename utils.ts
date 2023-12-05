@@ -6,3 +6,16 @@ export const getFileLines = async (dirname: string, path: string): Promise<strin
 
   return input.split('\r\n');
 };
+
+export const getAdjacentTiles = (map: string[][], y: number, x: number) => {
+  return [
+    map[y - 1]?.[x - 1],
+    map[y - 1]?.[x],
+    map[y - 1]?.[x + 1],
+    map[y]?.[x - 1],
+    map[y]?.[x + 1],
+    map[y + 1]?.[x - 1],
+    map[y + 1]?.[x],
+    map[y + 1]?.[x + 1],
+  ];
+};
