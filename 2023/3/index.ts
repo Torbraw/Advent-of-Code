@@ -21,7 +21,6 @@ export const firstChallenge = async () => {
         for (let l = 0; l < currentPart.length; l++) {
           const adjacent = getAdjacentTiles(map, y, x - 1 - l);
           if (adjacent.some((adj) => adj?.match(symbolsRegex))) {
-            console.log(currentPart);
             result += parseInt(currentPart);
             break;
           }
