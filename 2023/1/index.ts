@@ -43,6 +43,5 @@ export const secondChallenge = async () => {
     sum += parseInt(`${firstMatch}${lastMatch}`);
   }
 
-  //54770
   console.log('Sum: ', sum);
 };
