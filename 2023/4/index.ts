@@ -27,18 +27,6 @@ export const secondChallenge = async () => {
   const toProcess = Array.from({ length: lines.length }, (_, i) => i);
   const seenLines: Record<number, number[]> = {};
 
-  const getMatchingNumbers = (line: string, index: number) => {
-    if (!line) {
-      return [];
-    }
-
-    const numbers = line.split(':')[1]?.split('|') ?? [];
-    const winningNumbers = [...(numbers[0]?.matchAll(/\d+/g) ?? [])].map((match) => match[0]);
-    const myNumbers = [...(numbers[1]?.matchAll(/\d+/g) ?? [])].map((match) => match[0]);
-
-    return winningNumbers.filter((number) => myNumbers.includes(number)).map((_, i) => index + i);
-  };
-
   while (toProcess.length > 0) {
     const index = toProcess.pop();
     if (index === undefined) {
@@ -55,4 +43,16 @@ export const secondChallenge = async () => {
   }
 
   console.log('Sum: ', result);
+};
+
+const getMatchingNumbers = (line: string, index: number) => {
+  if (!line) {
+    return [];
+  }
+
+  const numbers = line.split(':')[1]?.split('|') ?? [];
+  const winningNumbers = [...(numbers[0]?.matchAll(/\d+/g) ?? [])].map((match) => match[0]);
+  const myNumbers = [...(numbers[1]?.matchAll(/\d+/g) ?? [])].map((match) => match[0]);
+
+  return winningNumbers.filter((number) => myNumbers.includes(number)).map((_, i) => index + i);
 };
