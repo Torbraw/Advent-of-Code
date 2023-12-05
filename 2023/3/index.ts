@@ -37,9 +37,56 @@ export const firstChallenge = async () => {
 
 export const secondChallenge = async () => {
   const lines = await getFileLines(__dirname, 'input.txt');
-  const result = 0;
+  let result = 0;
 
-  for (const line of lines) {
+  type PartNumber = {
+    value: number;
+    startX: number;
+    endX: number;
+    y: number;
+  };
+  type Asterisk = {
+    x: number;
+    y: number;
+  };
+
+  const numbers: PartNumber[] = [];
+  const asterisks: Asterisk[] = [];
+
+  for (const [i, line] of lines.entries()) {
+    const numberMatches = [...line.matchAll(/\d+/g)];
+    const asteriskMatches = [...line.matchAll(/\*/g)];
+
+    for (const match of numberMatches) {
+      const index = match.index as number;
+      numbers.push({
+        value: parseInt(match[0]),
+        startX: index,
+        endX: index + match[0].length - 1,
+        y: i,
+      });
+    }
+
+    for (const match of asteriskMatches) {
+      asterisks.push({
+        x: match.index as number,
+        y: i,
+      });
+    }
+  }
+
+  for (const asterisk of asterisks) {
+    const adjacentNumbers = numbers.filter(
+      (number) =>
+        asterisk.y <= number.y + 1 &&
+        asterisk.y >= number.y - 1 &&
+        asterisk.x <= number.endX + 1 &&
+        asterisk.x >= number.startX - 1,
+    );
+
+    if (adjacentNumbers.length === 2) {
+      result += (adjacentNumbers[0]?.value as number) * (adjacentNumbers[1]?.value as number);
+    }
   }
 
   console.log('Sum: ', result);
