@@ -28,10 +28,7 @@ export const secondChallenge = async () => {
   const seenLines: Record<number, number[]> = {};
 
   while (toProcess.length > 0) {
-    const index = toProcess.pop();
-    if (index === undefined) {
-      break;
-    }
+    const index = toProcess.pop() as number;
 
     const numbers = (
       seenLines[index] ? seenLines[index] : getMatchingNumbers(lines[index] ?? '', index + 1)
