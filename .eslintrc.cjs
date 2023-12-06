@@ -26,6 +26,7 @@ module.exports = {
     '@typescript-eslint/explicit-member-accessibility': ['error'],
     '@typescript-eslint/consistent-type-definitions': 'off',
     '@typescript-eslint/non-nullable-type-assertion-style': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-confusing-void-expression': ['error', { ignoreArrowShorthand: true }],
     '@typescript-eslint/no-unused-vars': [
       'warn',

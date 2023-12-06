@@ -1,5 +1,5 @@
-import { firstChallenge, secondChallenge } from './2023/4/index';
+import { firstChallenge, secondChallenge } from './2023/5/index';
 
 void (async (): Promise<void> => {
-  await secondChallenge();
+  await firstChallenge();
 })();
